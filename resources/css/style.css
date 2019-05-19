@@ -1,0 +1,795 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans|Roboto+Slab');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::selection {
+    background-color:  #e64b08;
+    color: #fff;
+}
+
+ul li {
+    list-style: none;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* *
+** button and link styling **
+**
+*/
+
+.btn,
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+    font-size: 1.6rem;
+
+    /* for <button>  element */
+        border: none;
+        cursor: pointer;
+}
+.btn:hover {
+    transform: translateY(-.3rem);
+    box-shadow: 0 1rem 2rem rgba(0,0,0, .2);
+
+}
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn:active,.btn:focus {
+    outline: none;
+    transform: translateY(-.1rem);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0, .2);
+}
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Roboto Slab', monospace;
+    font-size: 1.4rem;
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+#welcome-section {
+    width: 100%;
+    height: 100vh;
+}
+
+#welcome-section div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+#welcome-section h1{
+    text-align: center;
+    font-size: 5rem;
+    text-transform: uppercase;
+    animation-name: moveInFromLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+}
+
+h1.header,
+#about h2.header {
+    font-weight: 700;
+    font-family: 'PT Sans', sans-serif;
+    background-image: linear-gradient(to right, #fc7b43, #a03406);
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: all .2s;
+    letter-spacing: .2rem;
+}
+
+h1.header:hover,
+#about h2.header:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba(#000, .2);
+}
+
+#welcome-section p {
+    text-align: center;
+    font-size: 2rem; 
+    line-height: 2;
+    text-transform: uppercase;
+    color: #dfd5d5;
+    font-weight: 400;
+    animation-name: moveInFromRight;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+}
+
+.btn-transparent {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #e64b08;
+    display: inline-block;
+    padding: 1.5rem 4rem;
+    background-color: transparent;
+    margin-left: 33%;
+    margin-top: 5rem;
+}
+
+.btn-transparent:hover{
+    background-color: #edefde;
+} 
+
+.btn-transparent > span {
+    margin-left: 1rem;
+    font-size: 2rem;
+}
+
+#welcome-section ul {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: url(../images/welcomepg.png);
+    background-position: center center;
+}
+
+#welcome-section ul li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url(../images/welcome.png);
+    background-position: center center;
+    animation: animate 80s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(2) rotate(180deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes moveInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    80% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    80% {
+        transform: translateX(-2rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+#welcome-section ul li:nth-child(1) {
+    animation-delay: 32s;
+}
+
+#welcome-section ul li:nth-child(2) {
+    animation-delay: 24s;
+}
+
+#welcome-section ul li:nth-child(3) {
+    animation-delay: 16s;
+}
+
+#welcome-section ul li:nth-child(4) {
+    animation-delay: 8s;
+}
+
+#welcome-section ul li:nth-child(1) {
+    animation-delay: 0s;
+}
+
+#navbar {
+    width: 100%;
+    padding: 1rem;
+    background-color:#32383d;
+    border-bottom: .5rem solid #e64b08;
+    position: sticky;
+    z-index: 2;
+    transition: all 1s ease;
+    top: 0px;
+}
+
+#navbar ul {
+    display: flex;
+    width: 100%;
+}
+
+#navbar ul li {
+    flex-basis: 15%;
+}
+
+#navbar ul li:nth-child(1) {
+    margin-left: 5%;
+}
+
+#navbar ul li a {
+    font-size: 1.2em;
+    font-family: 'PT Sans', serif;
+    font-weight: 400;
+    color: #fff;
+}
+
+#navbar ul li a:hover {
+    color: #04c2c9;
+    transition: all 1s ease;
+}
+
+#about {
+    text-align: center;
+    padding: 2rem;
+    padding-top: 8rem;
+    width: 100%;
+    height: auto;
+    margin-bottom: 15rem;
+}
+
+.about-head {
+    margin-bottom: 2rem;
+    margin-left: 40%;
+}
+
+#about h2 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: 8rem;
+    font-family: 'PT Sans', sans-serif;
+    color: #333;
+    border-bottom: .5rem solid #32383d;
+    display: table-cell;
+    text-transform: uppercase;
+}
+
+#about h2::after {
+    content: "";
+    display: table-cell;
+    width: 100%;
+}
+
+#about p {
+    font-size: 3.5rem;
+    color: #fcb698;
+}
+
+#about p a {
+    font-size: 2.5rem;
+    color: #694737;
+    text-decoration: underline;
+}
+
+.front-end, .full-stack {
+    display: none;
+    transition: all .2s;
+}
+
+.front-end.visible, .full-stack.visible {
+    display: block;
+}
+
+#project {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+#project .title {
+    padding: 6rem;
+}
+
+#project .title a {
+    display: inline-block;
+    font-size: 2.5rem;
+    color: #848484;
+    opacity: .7;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 1rem;
+    transition: all .4s;
+}
+
+#project .title a:hover {
+    opacity: 1;
+}
+
+#project .title a.active {
+    border: 2px solid #848484;
+    opacity: 1;
+}
+
+#project .title a:not(:nth-last-child(1)) {
+    margin-right: 5rem;
+}
+
+.project-block {
+    padding: 5rem 15rem;
+}
+
+.project-block .front-end {
+    margin: 0 auto;
+    padding: 0;
+}
+.row {
+    max-width: 114rem;
+    margin: 0 auto;
+}
+
+.row:not(:last-child) {
+    margin-bottom: 8rem;
+}
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+[class^="col-"] {
+    float: left;
+}
+
+[class^="col-"]:not(:last-child) {
+    margin-right: 4rem;
+}
+
+.col-1-of-3 {
+    width: calc((100% - 8rem)/3);
+}
+
+.project {
+    width: 100%;
+    background-color: rgba(255,255,255, .8);
+    padding: 0;
+    font-size: 1.5rem;
+    text-align: center;
+    border: 2px solid #333;
+    overflow: hidden;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(0,0,0, .15);
+    transition: transform .3s;
+}
+
+.project .project-shape {
+    width: 100%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+
+.project .project-shape img {
+    padding: 0;
+    width: 100%;
+    display: inline-block;
+    cursor: pointer;
+    transform: scale(1.05);
+    backface-visibility: hidden;
+    transition: all .5s;
+}
+
+.project-link {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    text-align: center;
+    font-size: 1.4rem;
+    opacity: 0;
+    transform: all .5s;
+    backface-visibility: hidden;
+}
+
+.project:hover .project-link {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+.project:hover img {
+    transform: scale(1.15);
+    filter: blur(1.5px) brightness(75%);
+}
+
+.btn-project-link,
+.btn-project-link:active,
+.btn-project-link:visited {
+    text-transform: uppercase;
+    background-color: #fc7b43;
+    color: #fff;
+    display: inline-block;
+    border-radius: .5rem;
+    padding: .3rem;
+    transition: all .2s;
+}
+
+.btn-project-link > span {
+    margin-left: 1rem;
+    font-size: 2rem;
+}
+
+.contact {
+    padding: 15rem 0;
+    background-image: linear-gradient(to right bottom,  #fc7b43, #a03406);
+}
+
+.contact-us {
+    background-image: linear-gradient(105deg, 
+    rgba(255,255,255, .9) 0%, 
+    rgba(255,255,255, .9) 50%, 
+    transparent 50%)
+,url(../images/contactbg.jpg);
+    background-size: 100%; 
+    background-repeat: no-repeat;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(0,0,0, .15);
+}
+
+.contact-us__form {
+    width: 50%;
+    padding: 6rem;
+}
+
+.contact-header {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    background-image: linear-gradient(to right,  #fc7b43, #a03406);
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: all .2s;
+    letter-spacing: .2rem;
+    margin-bottom: 4rem;
+}
+
+.contact-header:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba(0,0,0, .2);
+}
+
+.form__group:not(:last-child) {
+    margin-bottom: 2rem;
+}
+
+.form__input {
+    font-size: 1.8rem;
+    font-family: inherit;
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba(248, 131, 131, 0.5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 90%;
+    display: block;
+    transition: all .3s;
+}
+
+.form__input:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(0,0,0, .1);
+    border-bottom: 3px solid #a03406;
+}   
+
+.form__input:focus:invalid {
+    border-bottom: 3px solid #04c2c9;
+}
+
+.form__input::-webkit-input-placeholder {
+    color: #999;
+}
+
+.form__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: .7rem;
+    display: block;
+    transition: all .3s;
+}
+
+.btn--primary {
+    background-color: #a03406;
+    color: #fff;
+}
+
+.btn--primary::after {
+    background-color: #a03406;
+}
+
+.footer {
+    background-color: #252525;
+    color: #A5A5A5;
+    padding: 10rem 0;
+    font-size: 1.4rem;
+}
+
+.footer__copyright {
+    border-top: 1px solid #777;
+    color: #505050;
+    padding-top: 2rem;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.footer__copyright > span {
+    font-weight: 700;
+    color: #a03406;
+}
+
+.social-label {
+    padding-top: 3.5rem;
+    width: 60%;
+}
+
+.social-label a {
+    font-size: 1.4rem;
+    font-weight: 700;
+    background-color: #1a1919;
+    color: #505050;
+    line-height: 2;
+    padding: 1rem;
+    border-radius: .3rem;
+}
+
+.social-label a:hover {
+    background-color: #00aced;
+    color: #ddf4fd;
+}
+
+.social-label a:last-child:hover {
+    background-color: #0288d1;
+}
+
+.social-label a:not(:last-child) {
+    margin-left: 50%;
+    margin-right: 3rem;
+}
+
+.social-label a > img {
+    display: inline-block;
+    width: 2.5rem;
+    margin-right: .5rem;
+    margin-bottom: -.6rem;
+}
+
+.social-label a:hover > img {
+    filter: invert(100%) sepia(13%) saturate(273%) hue-rotate(205deg) brightness(114%) contrast(100%) !important;
+}
+
+.site-description {
+    padding-top: 3rem;
+    text-align: center;
+    width: 40%;
+    margin-left: 25%;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+}
+
+@media only screen and (max-width: 75em) {
+    html {
+        font-size: 56.25%  /* 1rem = 9px => 9/16 * 100 = 56.25%*/
+    }
+
+    .contact-us {
+        background-image: linear-gradient(105deg, 
+        rgba(255,255,255, .9) 0%, 
+        rgba(255,255,255, .9) 65%, 
+        transparent 65%)
+    ,url(../images/contactbg.jpg);
+        background-size: cover; 
+    }
+
+    .contact-us__form {
+        width: 65%;
+    }
+}
+
+@media only screen and (max-width: 56.25em) {
+    html {
+        font-size: 50%;
+    }
+
+    .btn-transparent {
+        width: 50%;
+        padding: 1rem 1.5rem;
+        background-color: #dfd5d5;
+        margin-left: 25%;
+    }
+
+    
+    #about {
+        padding-top: 6rem;
+        margin-bottom: 10rem;
+    }
+    
+    .about-head {
+        margin-bottom: 2.5rem;
+    }
+    
+    #about p {
+        font-size: 2.5rem;
+    }
+    
+    #about p a {
+        font-size: 2rem;
+    }
+    
+    
+    #project .title {
+        padding: 4rem;
+    }
+    
+    #project .title a {
+        font-size: 2rem;
+    }
+    
+    #project .title a:not(:nth-last-child(1)) {
+        margin-right: 3rem;
+    }
+    
+    .project-block {
+        padding: 5rem 10rem;
+    }
+    
+    .row {
+        max-width: 100%;
+    }
+    
+    .row:not(:last-child) {
+        margin-bottom: 6rem;
+    }
+    
+    [class^="col-"]:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 6rem;
+    }
+
+    [class^="col-"] {
+        width: 100%;
+    }
+
+    
+    .contact {
+        padding: 10rem 0;
+        background-image: linear-gradient(to right bottom,  #fc7b43, #a03406);
+        }
+    
+    .contact-us {
+        background-image: linear-gradient(105deg, 
+        rgba(255,255,255, .9) 0%, 
+        rgba(255,255,255, .9) 100%),
+    url(../images/contactbg.jpg);
+    }
+    
+    .contact-us__form {
+        width: 100%;
+    }
+    
+    .contact-header {
+        font-size: 3rem;
+    }
+    
+    .form__input {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 37.5em) {
+    html {
+        font-size: 43.75%;
+    }
+
+    #welcome-section p {
+        font-size: 1.4rem; 
+    }
+    
+    .btn-transparent {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        background-color: #dfd5d5;
+        margin-left: 5%;
+    }
+    
+    #navbar ul li {
+        flex-basis: 25%;
+    }
+
+    #about {
+        padding: 1rem;
+    }
+    
+    .about-head {
+        margin-left: 30%;
+    }
+
+    .social-label {
+        width: 70%;
+    }
+    
+    .social-label a {
+        display: block;
+        width: 60%;
+        margin: 2rem auto;
+    }
+
+    .social-label a:not(:last-child) {
+        margin-left: 40%;
+    }
+
+    .social-label a:last-child {
+        margin-left: 40%;
+    }
+}
+
+@media only screen and (min-width: 112.5em) {
+    html {
+        font-size: 75%;
+    }
+}
